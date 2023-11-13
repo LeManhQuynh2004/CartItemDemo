@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -17,11 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import fpoly.quynhlmph32353.demofirebase.Dao.UserDao;
+import fpoly.quynhlmph32353.demofirebase.Model.User;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
     Context context;
@@ -105,13 +103,15 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                userDao.delete(user.getKey()).addOnSuccessListener(suc ->{
-                    Toast.makeText(context, "Delete Success", Toast.LENGTH_SHORT).show();
-                    list.remove(user);
-                    notifyDataSetChanged();
-                }).addOnFailureListener(er -> {
-                    Toast.makeText(context, er.getMessage()+"", Toast.LENGTH_SHORT).show();
-                });
+               if(user.getKey() != null){
+                   userDao.delete(user.getKey()).addOnSuccessListener(suc ->{
+                       Toast.makeText(context, "Delete Success", Toast.LENGTH_SHORT).show();
+                       list.remove(user);
+                       notifyDataSetChanged();
+                   }).addOnFailureListener(er -> {
+                       Toast.makeText(context, er.getMessage()+"", Toast.LENGTH_SHORT).show();
+                   });
+               }
             }
         });
         builder.setNegativeButton("CanCle",null);

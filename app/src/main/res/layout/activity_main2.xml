@@ -4,21 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="10dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity2">
     <TextView
-        android:textSize="30dp"
-        android:text="Create"
+        android:textSize="30sp"
+        android:text="Post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
     <EditText
-        android:id="@+id/ed_username"
+        android:id="@+id/ed_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
-        android:id="@+id/ed_password"
+        android:id="@+id/ed_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Spinner
+        android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <LinearLayout
@@ -27,17 +33,17 @@
         android:layout_height="wrap_content">
         <Button
             android:text="add"
-            android:id="@+id/btn_Add_User"
+            android:id="@+id/btn_Add_Post"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <Button
             android:text="out"
-            android:id="@+id/btn_Out_User"
+            android:id="@+id/btn_Out_Post"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecyclerView"
+        android:id="@+id/RecyclerView_Post"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>

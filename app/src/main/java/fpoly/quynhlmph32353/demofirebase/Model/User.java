@@ -1,4 +1,4 @@
-package fpoly.quynhlmph32353.demofirebase;
+package fpoly.quynhlmph32353.demofirebase.Model;
 
 import java.io.Serializable;
 
